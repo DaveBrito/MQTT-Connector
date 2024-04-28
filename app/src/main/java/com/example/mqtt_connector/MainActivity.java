@@ -2,7 +2,6 @@ package com.example.mqtt_connector;
 
 import static com.hivemq.client.mqtt.MqttGlobalPublishFilter.ALL;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5BlockingClient;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5Client;
-import com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5Publish;
+
 
 import java.nio.charset.StandardCharsets;
 
