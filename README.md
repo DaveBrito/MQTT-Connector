@@ -27,3 +27,38 @@ Após finalizado o cadastro na plataforma da HIVEMQ, será necessário criar um 
 - Navegando ate a aba de Web Client, terá que fazer o login com suas credenciais criadas no passo anterior.
 - Dentro do campo `Topic Subscriptions` , fiz a criação com o nome de `T1` como exemplo para esse projeto.
 <img src="https://github.com/DaveBrito/MQTT-Connector/raw/main/WebClient.png" width="70%" height="70%">
+
+
+# Dependências do Android-Studio
+-  Após feito todos os passos dentro do site do HiveMQ, apenas falta as dependências dentro do projeto.
+-  Adicione essa implementação dentro do arquivo, `build.gradle.kts`
+```kts
+dependencies {
+    implementation("com.hivemq:hivemq-mqtt-client:1.2.1")
+   
+}
+```
+
+- No arquivo `MainActivity.java` , adicione essas variavéis como globais para fazer a ligação com o Web Client.
+```java
+private static final String TOPIC = "T1"; // Atribuido o mesmo nome que foi digitado no Topic Subscriptions
+ String host = "85365865bf8349b997dc8e88c5337c3a.s1.eu.hivemq.cloud"; //URL 
+        String username = "DaviBrito"; 
+        String password = "----------"; // Utilize a senha que foi criada no site
+```
+
+
+Além da dependências que foram citadas acima, é necessário adicionar a permissão de uso de internet ao projeto, na aba `AndroidManifest.xml`.
+```xml
+<manifest
+<uses-permission android:name="android.permission.INTERNET" />
+</manifest>
+```
+
+# Possíveis Erros 
+
+- Durante a criação do projeto, me deparei com o seguinte erro :
+```java
+2024-04-28 17:30:57.386 16273-16273 libc    com.example.mqtt_connector    E  socket(AF_INET, SOCK_DGRAM | SOCK_CLOEXEC) failed in ifaddrs: Operation not permitted
+```
+- Esse erro refere-se a operação de permissão negada, consegui resolver apenas adicionando a última dependência de `uses-permission` .
