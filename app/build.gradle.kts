@@ -6,6 +6,16 @@ android {
     namespace = "com.example.mqtt_connector"
     compileSdk = 34
 
+
+    packaging {
+        resources {
+            val exclusions = mutableListOf(
+                "META-INF/INDEX.LIST",
+                "META-INF/io.netty.versions.properties"
+            )
+            excludes.addAll(exclusions)
+        }
+    }
     defaultConfig {
         applicationId = "com.example.mqtt_connector"
         minSdk = 29
