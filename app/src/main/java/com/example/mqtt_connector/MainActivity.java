@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5BlockingClient;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5Client;
 
-
 import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,7 +40,14 @@ public class MainActivity extends AppCompatActivity {
         client.toAsync().publishes(ALL, publish -> {
             String receivedMessage = new String(publish.getPayloadAsBytes(), StandardCharsets.UTF_8);
             runOnUiThread(() -> {
-                textViewMessages.append("\n" + receivedMessage);
+                // Verifica se a mensagem foi enviada pelo usuário ou recebida do site
+                if (receivedMessage.startsWith("[User]:")) {
+                    // Mensagem enviada pelo usuário
+                    textViewMessages.append("\n" + receivedMessage);
+                } else {
+                    // Mensagem recebida do site
+                    textViewMessages.append("\n[Site]: " + receivedMessage);
+                }
             });
         });
     }
@@ -72,12 +78,14 @@ public class MainActivity extends AppCompatActivity {
     private void sendMessage() {
         String message = editTextMessage.getText().toString();
         if (!message.isEmpty()) {
+            String userMessage = "[User]: " + message;
             client.publishWith()
                     .topic(TOPIC)
-                    .payload(StandardCharsets.UTF_8.encode(message))
+                    .payload(StandardCharsets.UTF_8.encode(userMessage))
                     .send();
             editTextMessage.setText("");
         }
+
     }
 
     @Override
