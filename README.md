@@ -6,7 +6,7 @@ Projeto designado para a disciplina de `Programação para Dispositivos Moveis I
 
 # Configuração do Cluster
 Acesse o site da [HIVEMQ](https://www.hivemq.com/) , faça a criação da sua conta para continuar no processo de conexão do site com o protocolo MQTT, através das etapas a seguir.
-- Todas as etapas a seguir foram retiradas da Fonte [Oficial](https://www.hivemq.com/blog/how-to-get-started-with-mqtt/) , caso queria ver e ter mais esclarecimentos. 
+- Todas as etapas a seguir, foram retiradas da [Fonte Oficial](https://www.hivemq.com/blog/how-to-get-started-with-mqtt/), caso queria ver e ter mais esclarecimentos. 
 
 ## 1° Etapa de Configuração
 Após finalizado o cadastro na plataforma da HIVEMQ, será necessário criar um servidor em nuvem, nossa única opção no momento é o Clouder Provider AWS. 
@@ -62,3 +62,22 @@ Além da dependências que foram citadas acima, é necessário adicionar a permi
 2024-04-28 17:30:57.386 16273-16273 libc    com.example.mqtt_connector    E  socket(AF_INET, SOCK_DGRAM | SOCK_CLOEXEC) failed in ifaddrs: Operation not permitted
 ```
 - Esse erro refere-se a operação de permissão negada, consegui resolver apenas adicionando a última dependência de `uses-permission` .
+
+
+# Exibição de Telas
+
+- Ao iniciar o projeto, será exibido a tela para o Usuário digitar a mensagem desejada, para se comunicar com o site/servidor.
+- Ao ser digitado a mensagem por essa tela, é reconhecido e declarado como 'User'. 
+<img src="https://github.com/DaveBrito/MQTT-Connector/raw/main/Captura.png" width="40%" height="40%">
+
+## Consultar Envio/Recebimento
+- Após feito o envio da mensagem, é feito uma consulta para verificar se a mensagem foi enviada ou recebida como esperado no servidor.
+<img src="https://github.com/DaveBrito/MQTT-Connector/raw/main/Exibição-User.png" width="90%" height="90%">
+
+- Será feito o envio de mensagem atráves do servidor, para ter certeza que a mensagem também será recebida e exibida para a tela do usuário.
+<img src="https://github.com/DaveBrito/MQTT-Connector/raw/main/Envio-MSG.png" width="70%" height="70%">
+
+- Finalizado a publicação da mensagem pelo servidor, é feito o mesmo passo anterior, verificar o recebimento da mesma como esperado.
+<img src="https://github.com/DaveBrito/MQTT-Connector/raw/main/Recebimento-MSG.png" width="40%" height="40%">
+
+  
