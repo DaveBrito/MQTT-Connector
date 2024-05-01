@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupMqttClient() {
         String host = "85365865bf8349b997dc8e88c5337c3a.s1.eu.hivemq.cloud";
-        String username = "DaviBrito";
-        String password = "Junior2024";
+        String username = "DaviBrito"; // Seu username
+        String password = "--------------"; //Utlize sua senha criada
 
         client = Mqtt5Client.builder()
                 .serverHost(host) // Define o host do servidor
@@ -76,14 +76,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendMessage() {
+        // Obtém o texto digitado pelo usuário no campo de texto
         String message = editTextMessage.getText().toString();
         if (!message.isEmpty()) {
-            String userMessage = "[User]: " + message;
-            client.publishWith()
+            String userMessage = "[User]: " + message;     // Formata a mensagem do usuário com o prefixo "[User]: "
+            
+            client.publishWith() // Publica a mensagem formatada no tópico especificado
                     .topic(TOPIC)
                     .payload(StandardCharsets.UTF_8.encode(userMessage))
                     .send();
-            editTextMessage.setText("");
+            
+            editTextMessage.setText("");     // Limpa o campo de texto após o envio da mensagem
         }
 
     }
