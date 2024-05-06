@@ -1,7 +1,7 @@
-# MQTT-Connector
+# O que é MQTT e BRoker MQTT?
+MQTT (Message Queuing Telemetry Transport) é um protocolo de mensagens leve e de baixa largura de banda projetado para dispositivos com recursos limitados, como sensores e dispositivos IoT. Ele funciona com um modelo de publicação e assinatura, onde os dispositivos publicam mensagens em tópicos e outros dispositivos assinam esses tópicos para receber as mensagens relevantes.
 
-Projeto designado para o aprendizado de Broker MQTT (Message Queuing Telemetry Transport) com um servidor do HiveMQ.
-
+Um broker MQTT é um servidor que implementa o protocolo MQTT e atua como intermediário entre os dispositivos que publicam mensagens e os dispositivos que as recebem. Ele é responsável por rotear as mensagens corretamente para os clientes assinantes.
 # Configuração do Cluster
 Acesse o site da [HIVEMQ](https://www.hivemq.com/) , faça a criação da sua conta para continuar no processo de conexão do site com o protocolo MQTT, através das etapas a seguir.
 - Todas as etapas a seguir, foram retiradas da [Fonte Oficial](https://www.hivemq.com/blog/how-to-get-started-with-mqtt/), caso queria ver e ter mais esclarecimentos. 
