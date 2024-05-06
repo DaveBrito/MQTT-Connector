@@ -1,8 +1,6 @@
 # MQTT-Connector
 
-Projeto designado para a disciplina de `Programação para Dispositivos Moveis I` , com orientações e explicações do professor, Paulo Rogerio da Silva.
-
-
+Projeto designado para o aprendizado de Broker MQTT (Message Queuing Telemetry Transport) com um servidor do HiveMQ.
 
 # Configuração do Cluster
 Acesse o site da [HIVEMQ](https://www.hivemq.com/) , faça a criação da sua conta para continuar no processo de conexão do site com o protocolo MQTT, através das etapas a seguir.
